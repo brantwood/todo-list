@@ -63,6 +63,8 @@ function deleteCheck(e) {
 function filterTodo(e) {
   const todos = todoList.childNodes
   todos.forEach((todo) => {
+    todo.style.display = 'none'
+
     switch (e.target.value) {
       case 'all':
         todo.style.display = 'flex'
@@ -70,17 +72,15 @@ function filterTodo(e) {
       case 'completed':
         if (todo.classList.contains('completed')) {
           todo.style.display = 'flex'
-        } else {
-          todo.style.display = 'none'
         }
         break
       case 'uncompleted':
         if (!todo.classList.contains('completed')) {
           todo.style.display = 'flex'
-        } else {
-          todo.style.display = 'none'
         }
         break
+      default:
+        console.error(`unhandled case '${e.target.value}'`)
     }
   })
 }
