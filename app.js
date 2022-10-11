@@ -48,7 +48,7 @@ function deleteCheck(e) {
     //ANIMATION
     todo.classList.add('fall')
     removeLocalTodos(todo)
-    todo.addEventListener('transitionend', function () {
+    todo.addEventListener('transitionend', () => {
       todo.remove()
     })
   }
@@ -62,7 +62,7 @@ function deleteCheck(e) {
 
 function filterTodo(e) {
   const todos = todoList.childNodes
-  todos.forEach(function (todo) {
+  todos.forEach((todo) => {
     switch (e.target.value) {
       case 'all':
         todo.style.display = 'flex'
@@ -94,7 +94,7 @@ function saveLocalTodos(todo) {
 
 function getTodos() {
   const todos = getTodos()
-  todos.forEach(function (todo) {
+  todos.forEach((todo) => {
     //Todo Div
     const todoDiv = document.createElement('div')
     todoDiv.classList.add('todo')
