@@ -89,7 +89,7 @@ function saveLocalTodos(todo) {
   const todos = getTodos()
 
   todos.push(todo)
-  localStorage.setItem('todos', JSON.stringify(todos))
+  setTodos(todos)
 }
 
 function getTodos() {
@@ -123,9 +123,13 @@ function removeLocalTodos(todo) {
   const todos = getTodos()
   const todoIndex = todo.children[0].innerText
   todos.splice(todos.indexOf(todoIndex), 1)
-  localStorage.setItem('todos', JSON.stringify(todos))
+  setTodos(todos)
 }
 
 function getTodos () {
   return JSON.parse(localStorage.getItem('todos') ?? '[]')
+}
+
+function setTodos (todos) {
+  localStorage.setItem('todos', JSON.stringify(todos))
 }
